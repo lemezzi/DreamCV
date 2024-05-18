@@ -1,0 +1,41 @@
+.cv-list-container {
+    max-width: 600px;
+    margin: 100px auto;
+  }
+  
+  .cv-list-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .cv-list-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.cv-list-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cv-list-button:hover {
+    background-color: #45a049;
+}
+
+.download-button {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background-color: #007B9D;
+}

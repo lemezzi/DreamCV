@@ -1,0 +1,72 @@
+
+  
+  .navbar-left h1 {
+    margin: 0;
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-right ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-right ul li {
+    margin-right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-right ul li:hover {
+    color: #ffd700; /* Change la couleur du texte au survol */
+  }
+  
+
+  
+  .navbar-right input:focus {
+    width: 100px; /* Augmente la largeur de l'input au focus */
+    outline: none; /* Supprime le contour de focus */
+    background-color: #555; /* Change la couleur de fond au focus */
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient(to right, #2ea3dd, #1f212d); /* Dégradé de bleu */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+  
+  .navbar-left {
+    float: left;
+  }
+  
+  .navbar-right {
+    float: right;
+  }
+  
+  .navbar-right ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 50px;
+  }
+  
+  .navbar-right ul li {
+    display:flex;
+    margin-right: 50px;
+    cursor: pointer;
+  }
+    

@@ -1,0 +1,74 @@
+/* BasicCv.css */
+.BasicCv {
+    font-family: Arial, sans-serif;
+    
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    width: 140%;
+    margin-left: -22%;
+}
+
+.Nom {
+    text-align: center;
+}
+
+.adress {
+    text-align: center;
+}
+
+.contain {
+    display: flex;
+    justify-content: space-between; /* Ajoute de l'espace entre les éléments */
+}
+
+.contain a {
+    text-decoration: none; /* Supprime la soulignement des liens */
+    color: inherit; /* Hérite la couleur du texte parent */
+}
+
+.contain p {
+    margin-right: 20px; /* Ajoute un espace à droite de chaque paragraphe */
+}
+
+.ligne {
+    border: 1px solid black;
+}
+
+.descripa {
+    
+    padding: 10px; /* Ajustez cette valeur selon vos besoins */
+    box-sizing: border-box;
+    overflow: hidden; /* Cela garantit que tout contenu débordant est masqué */
+    width: 100%; /* Vous pouvez ajuster la largeur selon vos besoins */
+  }
+  
+  .descripa p {
+    margin: 0; /* Pour éviter que les marges du paragraphe ne dépassent */
+    word-wrap: break-word; /* Pour s'assurer que le texte se casse correctement */
+  }
+  .lig1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 0; /* Pour espacer les éléments sur la ligne */
+  }
+  .part2{
+    display: flex;
+    justify-content: space-between;
+
+
+  }
+
+  .part3{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -3%;
+
+
+  }
+.des{
+   margin-top: -0.5%;
+}
+  
+
+
