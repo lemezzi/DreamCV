@@ -1,121 +1,143 @@
+/* Styles pour .personal-container */
 .personal-container {
-    margin: 40px;
-    padding: 20px;
-    max-width: 800px;
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
+  margin: 40px;
+  padding: 20px;
+  max-width: 800px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.personal-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="file"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="file"]:focus {
+  border-color: #007bff;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style pour l'aperçu de l'image sélectionnée */
+#image-preview {
+  margin-top: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.added-personals {
+  margin-top: 20px;
+}
+
+/* Styles pour chaque élément de .personal-item */
+.personal-item {
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.personal-item p {
+  margin: 10px 0;
+}
+
+.personal-item button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.personal-item button:hover {
+  background-color: #0056b3;
+}
+
+.personal-item button.delete {
+  background-color: #dc3545;
+}
+
+.personal-item button.delete:hover {
+  background-color: #bd2130;
+}
+
+/* Styles pour .descrip */
+.descrip {
+  border: 1px solid #333;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+
+.descrip p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* Media queries pour rendre le CSS responsive */
+@media screen and (max-width: 600px) {
+  .personal-container {
+      margin: 20px;
+      padding: 10px;
+      max-width: 95%;
   }
-  
-  .personal-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group input[type="file"] {
+      width: 100%;
   }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="file"] {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="tel"]:focus,
-  input[type="file"]:focus {
-    border-color: #007bff;
-  }
-  
+
   button[type="submit"] {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+      width: 100%;
   }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Style pour l'aperçu de l'image sélectionnée */
-  #image-preview {
-    margin-top: 10px;
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .added-personals {
-    margin-top: 20px;
-  }
-  
-  .personal-item {
-    border: 1px solid #007bff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .personal-item p {
-    margin: 10px 0;
-  }
-  
-  .personal-item button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .personal-item button:hover {
-    background-color: #0056b3;
-  }
-  
-  .personal-item button.delete {
-    background-color: #dc3545;
-  }
-  
-  .personal-item button.delete:hover {
-    background-color: #bd2130;
-  }
-  .descrip {
-    border: 1px solid #333;
-    padding: 10px; /* Ajustez cette valeur selon vos besoins */
-    box-sizing: border-box;
-    overflow: hidden; /* Cela garantit que tout contenu débordant est masqué */
-    width: 100%; /* Vous pouvez ajuster la largeur selon vos besoins */
-  }
-  
-  .descrip p {
-    margin: 0; /* Pour éviter que les marges du paragraphe ne dépassent */
-    word-wrap: break-word; /* Pour s'assurer que le texte se casse correctement */
-  }
-  
-  
+}
