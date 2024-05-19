@@ -56,7 +56,7 @@ function BasicCv() {
             <div className='part2'><p>{ed.from} <FaArrowRight /> </p>
             <p>{ed.to}</p></div>
           </div>
-          <div className='part3' > <p>{ed.subject}</p> <p >{ed.city}</p></div>
+          <div className='part3' > <p>{ed.subject}</p> <p ><GiPositionMarker />{ed.city}</p></div>
           <p className='des'>{ed.degree}</p>
           
         </div>
@@ -77,7 +77,7 @@ function BasicCv() {
             <div className='lig1'>
 <p> <b>{experience.companyName.toUpperCase()}</b></p>  <div className='part2'><p>{experience.from} <FaArrowRight /> </p>
             <p>{experience.to}</p></div></div>
-            <div className='part3' > <p>{experience.description}</p> <p >{experience.city}</p></div>
+            <div className='part3' > <p>{experience.description}</p> <p ><GiPositionMarker />{experience.city}</p></div>
 
          <p className='des'> {experience.position}</p>
           
@@ -119,6 +119,9 @@ function BasicCv() {
                 </section>
                 
             </div>
+            <div className='ligne'></div>
+
+            
         </div>
     );
 }
