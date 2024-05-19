@@ -6,6 +6,8 @@ import './CvList.css';
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
+import basicCvImage from './image2.png';
+
 function CvList() {
     const [selectedCv, setSelectedCv] = useState(null);
 
@@ -34,12 +36,25 @@ function CvList() {
         <div className="cv-list-container">
             <h2 className="cv-list-header">Choisissez le type de CV à travailler :</h2>
             <div className="cv-list-buttons">
-                <button className="cv-list-button" onClick={() => handleSelectCv('basic')}>CV Basique</button>
-                <button className="cv-list-button" onClick={() => handleSelectCv('professional')}>CV Professionnel</button>
-                <button className="cv-list-button" onClick={() => handleSelectCv('creative')}>CV Créatif</button>
-                <button onClick={generatePdf} className="download-button">Télécharger en PDF</button>
+                <div className="cv-button-container">
+                  <button className="cv-list-button" onClick={() => handleSelectCv('basic')}>CV Basique</button>
+                    <img src={basicCvImage} alt="CV Basique" className="cv-button-image" />
+                    
+                </div>
+                <div className="cv-button-container">
+                    <button className="cv-list-button" onClick={() => handleSelectCv('professional')}>CV Professionnel</button>
+                    <img src={basicCvImage} alt="CV Basique" className="cv-button-image" />
 
+                </div>
+                <div className="cv-button-container">
+                   
+         <button className="cv-list-button" onClick={() => handleSelectCv('creative')}>CV Créatif</button>
+         <img src={basicCvImage} alt="CV Basique" className="cv-button-image" />
+
+                </div>
             </div>
+            <button onClick={generatePdf} className="download-button">Télécharger en PDF</button>
+
 
             {selectedCv === 'basic' && <BasicCv />}
             {selectedCv === 'professional' && <ProfessionalCv />}
