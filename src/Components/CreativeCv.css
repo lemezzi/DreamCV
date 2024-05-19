@@ -1,0 +1,134 @@
+.CreativeCv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+}
+
+#cv-content {
+    width: 100%;
+}
+
+
+
+.name {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.address, .contact-info a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #0073b1; /* LinkedIn blue color */
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #005582; /* Darker LinkedIn blue */
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+
+.description p {
+    font-style: italic;
+    color: #777;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.education-list, .experience-list, .skills-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.education-item, .experience-item {
+    margin-bottom: 15px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-range {
+    display: flex;
+    align-items: center;
+}
+
+.date-range p {
+    margin: 0 5px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 1em;
+    color: #555;
+}
+
+.degree, .position {
+    font-style: italic;
+    color: #777;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Vertical line for sections */
+.Cvside {
+    padding-left: 20px;
+}
+
+/* Horizontal bar for information sections */
+header .contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header .contact-info a {
+    margin: 0 10px;
+}
