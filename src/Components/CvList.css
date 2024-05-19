@@ -1,6 +1,7 @@
 .cv-list-container {
     max-width: 600px;
     margin: 100px auto;
+    text-align: center;
   }
   
   .cv-list-header {
@@ -38,4 +39,27 @@
 
 .download-button:hover {
     background-color: #007B9D;
+}
+
+
+.cv-button-image {
+    width: 150px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.cv-button-image:hover {
+    transform: translateY(-5px) scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: #007bff;
+}
+
+
+.cv-button-container{
+    text-align: center;
+
 }
