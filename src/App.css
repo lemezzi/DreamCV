@@ -2,25 +2,27 @@
   height: 100vh; /* Utilisation de la hauteur de la fenêtre */
 }
 
-
-
-
 .left-side {
   float: left; /* Flottant à gauche */
   width: 50%; /* La moitié de la largeur de l'écran */
   background: linear-gradient(to bottom, #cccccc);  /* Dégradé de couleur bleue à grise */
- 
- 
-  
 }
-
 
 .right-side {
   float: right; /* Flottant à droite */
   width: 50%; /* La moitié de la largeur de l'écran */
-  height: 2000px; /* Hauteur de chaque côté */
   background: linear-gradient(to bottom,#1f212d,#499bf3, #cccccc ,#007bff);  /* Couleur de fond de la partie de droite */
-  overflow-y:scroll;
+  overflow-y: scroll;
+}
 
+/* Media query pour rendre le CSS responsive */
+@media screen and (max-width: 768px) {
+  .left-side, .right-side {
+    float: none; /* Supprimer le flottant */
+    width: 100%; /* Occuper toute la largeur de l'écran */
+  }
 
+  .right-side {
+    height: auto; /* Ajuster la hauteur automatiquement */
+  }
 }
