@@ -1,3 +1,6 @@
+/* CreativeCv.css */
+
+/* Styles de base pour .CreativeCv */
 .CreativeCv {
     display: flex;
     flex-direction: column;
@@ -12,18 +15,19 @@
     margin: auto;
 }
 
+/* Styles pour la largeur du contenu */
 #cv-content {
     width: 100%;
 }
 
-
-
+/* Styles pour le nom */
 .name {
     font-size: 2.5em;
     font-weight: bold;
     margin: 0;
 }
 
+/* Styles pour l'adresse et les informations de contact */
 .address, .contact-info a {
     display: block;
     margin: 10px 0;
@@ -41,6 +45,7 @@
     color: #005582; /* Darker LinkedIn blue */
 }
 
+/* Styles pour la barre de séparation horizontale */
 .divider {
     width: 100%;
     height: 1px;
@@ -48,36 +53,43 @@
     margin: 20px 0;
 }
 
+/* Styles pour la description */
 .description p {
     font-style: italic;
     color: #777;
 }
 
+/* Styles pour les sections */
 section {
     margin-bottom: 20px;
 }
 
+/* Styles pour les titres de section */
 h2 {
     font-size: 1.8em;
     color: #333;
     margin-bottom: 10px;
 }
 
+/* Styles pour les listes d'éducation, d'expérience et de compétences */
 .education-list, .experience-list, .skills-list {
     display: flex;
     flex-direction: column;
 }
 
+/* Styles pour les éléments d'éducation et d'expérience */
 .education-item, .experience-item {
     margin-bottom: 15px;
 }
 
+/* Styles pour les lignes */
 .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Styles pour la plage de dates */
 .date-range {
     display: flex;
     align-items: center;
@@ -87,6 +99,7 @@ h2 {
     margin: 0 5px;
 }
 
+/* Styles pour les détails */
 .details {
     display: flex;
     justify-content: space-between;
@@ -96,33 +109,37 @@ h2 {
     color: #555;
 }
 
+/* Styles pour le degré et la position */
 .degree, .position {
     font-style: italic;
     color: #777;
 }
 
+/* Styles pour les éléments de compétence */
 .skill-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
+/* Styles pour les listes non ordonnées */
 ul {
     list-style: none;
     padding: 0;
 }
 
+/* Styles pour les éléments de liste */
 li {
     font-size: 1.2em;
     margin: 5px 0;
 }
 
-/* Vertical line for sections */
+/* Styles pour la barre verticale des sections */
 .Cvside {
     padding-left: 20px;
 }
 
-/* Horizontal bar for information sections */
+/* Styles pour la barre horizontale des sections d'informations */
 header .contact-info {
     display: flex;
     justify-content: center;
@@ -131,4 +148,47 @@ header .contact-info {
 
 header .contact-info a {
     margin: 0 10px;
+}
+
+/* Media Query pour les écrans plus petits */
+@media screen and (max-width: 600px) {
+    .name {
+        font-size: 2em; /* Réduire la taille du nom */
+    }
+
+    .address, .contact-info a {
+        font-size: 1em; /* Réduire la taille de l'adresse et des informations de contact */
+    }
+
+    .description p {
+        font-size: 0.9em; /* Réduire la taille de la description */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Réduire la taille des titres de section */
+    }
+
+    .divider {
+        margin: 15px 0; /* Ajuster la marge de la barre de séparation */
+    }
+
+    .row {
+        flex-direction: column; /* Modifier la direction des lignes en colonne */
+    }
+
+    .date-range p {
+        margin: 5px 0; /* Ajuster la marge de la plage de dates */
+    }
+
+    .details {
+        flex-direction: column; /* Modifier la direction des détails en colonne */
+    }
+
+    .skill-item {
+        flex-direction: column; /* Modifier la direction des éléments de compétence en colonne */
+    }
+
+    li {
+        font-size: 1em; /* Réduire la taille des éléments de liste */
+    }
 }
