@@ -1,5 +1,5 @@
 // BasicCv.jsx
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import './BasicCv.css';
 import { useSelector } from 'react-redux';
 import { getMail, getNom, getTelph, getAdress, getGit, getLink, getDescrip } from '../features/CvSlice';
@@ -12,6 +12,8 @@ import { FaGithub } from "react-icons/fa";
 import { GiPositionMarker } from "react-icons/gi";
 import { FaLinkedin } from "react-icons/fa";
 import { getprof } from '../features/ProfSlice';
+import { getLanguages} from '../features/CompetSlice';
+import { getLangue } from '../features/LanguageSlice';
 
 
 function BasicCv() {
@@ -24,6 +26,8 @@ function BasicCv() {
     const descrip=useSelector(getDescrip);
    const educat=useSelector(geteducat);
    const exp=useSelector(getprof);
+   const sub=useSelector(getLanguages);
+   const lang=useSelector(getLangue);
     return (
         <div className="BasicCv">
             <div id="cv-content" className="Cvside">
@@ -85,28 +89,35 @@ function BasicCv() {
                 
                 <section className="skills">
                     <h2>Compétences</h2>
-                    <ul>
-                        <li>Compétence A</li>
-                        <li>Compétence B</li>
-                        {/* Ajoute d'autres compétences */}
-                    </ul>
+                    <div className='ligne'></div>
+
+                    <div className="added-language">
+        {sub.map((lang, index) => (
+          <div key={index} className="language-items">
+            <p>{lang.language}</p>
+           
+          </div>
+        ))}
+      </div>
                 </section>
                 <section className="languages">
                     <h2>Langues</h2>
-                    <ul>
-                        <li>Langue A - Niveau</li>
-                        <li>Langue B - Niveau</li>
-                        {/* Ajoute d'autres langues */}
+                    <div className='ligne'></div>
+
+        {lang.map((language, index) => (
+          <div key={index}>
+            
+            <ul>
+                        <li><b>{language.language.toUpperCase()} <b>:</b> {language.level}</b></li>
+                       
+                       
                     </ul>
+          
+          </div>
+        ))}
+                    
                 </section>
-                <section className="interests">
-                    <h2>Centres d'intérêt</h2>
-                    <ul>
-                        <li>Intérêt A</li>
-                        <li>Intérêt B</li>
-                        {/* Ajoute d'autres centres d'intérêt */}
-                    </ul>
-                </section>
+                
             </div>
         </div>
     );
