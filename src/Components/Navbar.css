@@ -1,72 +1,87 @@
+/* Styles de base pour .navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(to right, #2ea3dd, #1f212d); /* Dégradé de bleu */
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+  z-index: 1000; /* Assure que la barre de navigation reste au-dessus du contenu */
+}
 
-  
-  .navbar-left h1 {
-    margin: 0;
-    font-size: 24px;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-right ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-right ul li {
-    margin-right: 20px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-right ul li:hover {
-    color: #ffd700; /* Change la couleur du texte au survol */
-  }
-  
+/* Styles pour .navbar-left */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
 
-  
-  .navbar-right input:focus {
-    width: 100px; /* Augmente la largeur de l'input au focus */
-    outline: none; /* Supprime le contour de focus */
-    background-color: #555; /* Change la couleur de fond au focus */
-  }
+/* Styles pour le titre dans .navbar-left */
+.navbar-left h1 {
+  margin: 0;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+/* Styles pour .navbar-right */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Ajoute un espace entre .navbar-left et .navbar-right */
+}
+
+/* Styles pour les éléments de liste dans .navbar-right */
+.navbar-right ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center; /* Aligne les éléments de liste verticalement */
+}
+
+/* Styles pour chaque élément de liste dans .navbar-right */
+.navbar-right ul li {
+  margin-right: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Change la couleur du texte au survol */
+.navbar-right ul li:hover {
+  color: #ffd700;
+}
+
+/* Styles pour l'input dans .navbar-right */
+.navbar-right input:focus {
+  width: 100px;
+  outline: none;
+  background-color: #555;
+}
+
+/* Media Query pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+  /* Réorganiser la disposition de la barre de navigation */
   .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-image: linear-gradient(to right, #2ea3dd, #1f212d); /* Dégradé de bleu */
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 20px;
+      flex-direction: column;
+      padding: 10px;
   }
-  
+
+  /* Ajuster les styles de .navbar-left */
   .navbar-left {
-    float: left;
+      margin-bottom: 10px;
   }
-  
+
+  /* Ajuster les styles de .navbar-right */
   .navbar-right {
-    float: right;
+      margin: 0;
   }
-  
-  .navbar-right ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    margin-right: 50px;
-  }
-  
+
+  /* Ajuster les styles des éléments de liste dans .navbar-right */
   .navbar-right ul li {
-    display:flex;
-    margin-right: 50px;
-    cursor: pointer;
+      margin-right: 0;
   }
-    
+}
