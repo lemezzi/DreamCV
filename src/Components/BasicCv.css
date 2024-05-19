@@ -69,6 +69,52 @@
 .des{
    margin-top: -0.5%;
 }
-  
+
+/* Styles de base pour la section des langues */
+.added-languages {
+  display: flex; /* Pour aligner les items horizontalement */
+  flex-wrap: wrap; /* Pour aller à la ligne si trop d'items */
+  gap: 15px; /* Espacement entre les items */
+  padding: 20px; /* Espacement interne */
+  background-color: #f0f0f0; /* Couleur de fond plus douce */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner de la profondeur */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+}
+
+/* Styles pour chaque item de langue */
+.added-language {
+  display: flex; /* Pour aligner les items horizontalement */
+  flex-wrap: wrap; /* Pour aller à la ligne s'il y a trop d'items */
+  gap: 10px; /* Espacement entre les items */
+  padding: 20px; /* Espacement interne */
+  background-color: #ffffff; /* Couleur de fond */
+  border-radius: 10px; /* Coins arrondis */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+}
+
+/* Styles pour chaque item de langue */
+.language-items {
+  background-color: #ffffff; /* Couleur de fond des items */
+  padding: 10px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+  transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+  border: 1px solid #000000;
+  display: flex; /* Utiliser flexbox */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+}
+
+/* Styles pour le texte des langues */
+.language-items p {
+  margin: 0; /* Supprimer les marges par défaut */
+  font-size: 16px; /* Taille de la police */
+  color: #000000; /* Couleur du texte */
+  font-weight: bold; /* Texte en gras */
+}
+
+ 
 
 
