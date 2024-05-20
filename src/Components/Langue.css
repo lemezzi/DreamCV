@@ -6,7 +6,6 @@
     border: 2px solid #007bff;
     border-radius: 10px;
     background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
 }
 
@@ -61,6 +60,7 @@ button[type="submit"]:hover {
 /* Styles pour les langues ajoutées */
 .added-languages {
     margin-top: 20px;
+ 
 }
 
 /* Styles pour chaque élément de langue */
@@ -69,7 +69,6 @@ button[type="submit"]:hover {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .language-item p {
