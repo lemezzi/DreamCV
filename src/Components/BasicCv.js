@@ -32,8 +32,9 @@ function BasicCv() {
         <div className="BasicCv">
             <div id="cv-content" className="Cvside">
                 <header>
-                    <h1 className='Nom'>{ali}</h1>
-                    <p className='adress'><GiPositionMarker />{adress}</p>
+                    <div className='head'> <h1 className='Nom'>{ali}</h1>
+                    <p className='adress'><GiPositionMarker />{adress}</p></div>
+                   
                     <div className='contain'>
                         <a href={`tel:${phone}`}><FaPhone /> {phone}</a>
                         <a href={`mailto:${mail}`}><IoIosMail /> {mail}</a>
@@ -53,11 +54,11 @@ function BasicCv() {
           <div key={index} className="items">
           <div className='lig1'>
             <p> <b>{ed.schoolName.toUpperCase()}</b> </p>
-            <div className='part2'><p>{ed.from} <FaArrowRight /> </p>
-            <p>{ed.to}</p></div>
+            <div className='part2'><p><b>{ed.from}</b> <FaArrowRight /> </p>
+            <p> <b>{ed.to}</b></p></div>
           </div>
-          <div className='part3' > <p>{ed.subject}</p> <p ><GiPositionMarker />{ed.city}</p></div>
-          <p className='des'>{ed.degree}</p>
+          <div className='part3' > <p>{ed.subject}</p> <p className='cit'><GiPositionMarker /><b>{ed.city}</b></p></div>
+          <p className='des'> <b>Diplôme : </b> {ed.degree}</p>
           
         </div>
         
@@ -75,11 +76,11 @@ function BasicCv() {
           <div key={index} className="items">
             
             <div className='lig1'>
-<p> <b>{experience.companyName.toUpperCase()}</b></p>  <div className='part2'><p>{experience.from} <FaArrowRight /> </p>
-            <p>{experience.to}</p></div></div>
-            <div className='part3' > <p>{experience.description}</p> <p ><GiPositionMarker />{experience.city}</p></div>
+<p> <b>{experience.companyName.toUpperCase()}</b></p>  <div className='part2'><p><b>{experience.from}</b> <FaArrowRight /> </p>
+            <p><b>{experience.to}</b></p></div></div>
+            <div className='part3' > <p>{experience.description}</p> <p  className='cit'><GiPositionMarker /><b>{experience.city}</b></p></div>
 
-         <p className='des'> {experience.position}</p>
+         <p><b>Outils:</b>  {experience.position}</p>
           
            
           </div>
@@ -119,7 +120,6 @@ function BasicCv() {
                 </section>
                 
             </div>
-            <div className='ligne'></div>
 
             
         </div>
