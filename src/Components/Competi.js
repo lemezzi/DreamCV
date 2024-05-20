@@ -75,7 +75,7 @@ function Competi() {
           <div key={index} className="language-item">
             <p>Langage de programmation : {lang.language}</p>
             <button onClick={() => handleEdit(index)}>Modifier</button>
-            <button onClick={() => handleDelete(index)}>Supprimer</button>
+            <button className="delete" onClick={() => handleDelete(index)}>Supprimer</button>
           </div>
         ))}
       </div>
