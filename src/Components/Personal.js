@@ -191,7 +191,7 @@ function Personal() {
           <div className='descrip'> <p>Desctiprion:{personal.description}</p> </div>
           
           <button onClick={() => handleEdit(index)}>Modifier</button>
-          <button onClick={() => handleDelete(index)}>Supprimer</button>
+          <button className="delete" onClick={() => handleDelete(index)}>Supprimer</button>
         </div>
       ))}
     </div>
