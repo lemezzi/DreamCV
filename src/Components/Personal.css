@@ -1,4 +1,4 @@
-/* Styles pour .personal-container */
+/* Styles de base pour .personal-container */
 .personal-container {
   margin: 40px;
   padding: 20px;
@@ -10,12 +10,14 @@
   font-family: Arial, sans-serif;
 }
 
+/* Styles pour le titre de la section */
 .personal-container h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
 }
 
+/* Styles pour les groupes de formulaire */
 .form-group {
   margin-bottom: 20px;
 }
@@ -27,25 +29,22 @@ label {
   font-weight: bold;
 }
 
+/* Styles pour les champs de formulaire */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="file"] {
-  width: 95%;
+input[type="file"],
+textarea {
+  width: 100%; /* Utilise la largeur totale */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="file"]:focus {
-  border-color: #007bff;
-}
-
+/* Styles pour les boutons de soumission */
 button[type="submit"] {
   padding: 10px 20px;
   border: none;
@@ -61,18 +60,12 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Style pour l'aperçu de l'image sélectionnée */
-#image-preview {
-  margin-top: 10px;
-  max-width: 100%;
-  height: auto;
-}
-
+/* Styles pour les éléments ajoutés */
 .added-personals {
   margin-top: 20px;
 }
 
-/* Styles pour chaque élément de .personal-item */
+/* Styles pour chaque élément ajouté */
 .personal-item {
   border: 1px solid #007bff;
   border-radius: 8px;
@@ -108,36 +101,10 @@ button[type="submit"]:hover {
   background-color: #bd2130;
 }
 
-/* Styles pour .descrip */
-.descrip {
-  border: 1px solid #333;
-  padding: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-  width: 100%;
-}
-
-.descrip p {
-  margin: 0;
-  word-wrap: break-word;
-}
-
-/* Media queries pour rendre le CSS responsive */
+/* Media Query pour les écrans plus petits */
 @media screen and (max-width: 600px) {
   .personal-container {
-      margin: 20px;
-      padding: 10px;
-      max-width: 95%;
-  }
-
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="tel"],
-  .form-group input[type="file"] {
-      width: 100%;
-  }
-
-  button[type="submit"] {
-      width: 100%;
+      margin: 20px auto; /* Réduire la marge */
+      padding: 10px; /* Réduire le padding */
   }
 }
