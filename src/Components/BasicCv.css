@@ -129,3 +129,50 @@
 .head > * {
     margin: 10px 0;
 }
+
+/* Styles pour les écrans de taille moyenne et plus grande */
+.BasicCv {
+    text-align: left;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    width: 140%;
+    margin-left: -22%;
+}
+
+/* Styles pour les petits écrans */
+@media only screen and (max-width: 768px) {
+    .BasicCv {
+        padding: 10px; 
+        width: 90%; 
+        margin-left: 0; 
+    }
+
+    .part3 > p {
+        margin-right: 20px;
+    }
+
+    .contain {
+        flex-direction: column; /* Empiler les éléments sur une colonne pour les petits écrans */
+    }
+
+    .part2,
+    .part3 {
+        flex-direction: column; /* Empiler les éléments sur une colonne pour les petits écrans */
+        align-items: flex-start; /* Aligner les éléments à gauche */
+    }
+
+    .part3 > p {
+        margin-right: 0; /* Supprimer la marge à droite pour les petits écrans */
+        margin-bottom: 10px; /* Ajouter une marge en bas pour séparer les éléments */
+    }
+
+    .added-languages {
+        padding: 10px; /* Réduire le rembourrage pour les petits écrans */
+    }
+
+    .added-language {
+        padding: 10px; /* Réduire le rembourrage pour les petits écrans */
+    }
+}
