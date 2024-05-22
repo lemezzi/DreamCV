@@ -15,22 +15,39 @@ function CvList() {
         setSelectedCv(cvType);
     };
 
-    const generatePdf = () => {
-        const input = document.getElementById('cv-content');
-        html2canvas(input)
-            .then((canvas) => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF();
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                pdf.save("cv.pdf");
-            })
-            .catch((error) => {
-                console.error("Error generating PDF: ", error);
+    const generateAndSharePDF = async () => {
+        const cvContent = document.getElementById('cv-content');
+      
+        try {
+          const canvas = await html2canvas(cvContent, {
+            allowTaint: true,
+            useCORS: true,
+            scale: window.devicePixelRatio
+          });
+      
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF('p', 'mm', 'a4');
+          const imgProps = pdf.getImageProperties(imgData);
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      
+          const pdfBlob = pdf.output('blob');
+      
+          if (navigator.share) {
+            await navigator.share({
+              files: [pdfBlob],
+              title: 'CV PDF',
+              text: 'Voici mon CV en PDF.'
             });
-    };
+          } else {
+            console.error('Web Share API not supported');
+          }
+        } catch (error) {
+          console.error('Error generating or sharing PDF:', error);
+        }
+      };
 
     return (
         <div className="cv-list-container">
@@ -53,7 +70,7 @@ function CvList() {
 
                 </div>
             </div>
-            <button onClick={generatePdf} className="download-button">Télécharger en PDF</button>
+            <button onClick={generateAndSharePDF} className="download-button">Télécharger en PDF</button>
 
 
             {selectedCv === 'basic' && <BasicCv />}
