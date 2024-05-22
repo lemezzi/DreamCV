@@ -63,3 +63,16 @@
     text-align: center;
 
 }
+
+@media (max-width: 768px) {
+    .cv-list-buttons {
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .cv-list-button,
+    .download-button {
+      width: 100%; 
+      max-width: 300px; 
+    }
+  }
