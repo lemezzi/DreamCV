@@ -5,9 +5,12 @@
     padding: 20px;
     border-radius: 8px;
     background-color: #ffffff;
-    width: 140%;
-    margin-left: -22%;
+    width: 100%; /* Utilisation de 100% de la largeur de l'écran */
+    max-width: 800px; /* Limiter la largeur maximale pour une meilleure lisibilité */
+    margin: 0 auto; /* Centrer l'élément sur la page */
+    box-sizing: border-box; /* S'assurer que les bordures et les rembourrages sont inclus dans la largeur */
 }
+
 
 .Nom {
     text-align: left;
@@ -65,11 +68,12 @@
 }
 
 .part3 > p {
-    margin-right: 70px;
+    
 }
 
 .cit {
     display: flex;
+
 }
 
 .des {
@@ -176,3 +180,4 @@
         padding: 10px; /* Réduire le rembourrage pour les petits écrans */
     }
 }
+
