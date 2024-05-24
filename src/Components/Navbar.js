@@ -1,6 +1,8 @@
 import React from "react";
 import "./Navbar.css"; // Utilisation de guillemets doubles pour les chaînes de caractères
 import { GiSpellBook } from "react-icons/gi";
+import Flag from 'react-world-flags'
+
 const Navbar = () => {
     return (
         <nav className="navbar">
@@ -9,9 +11,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-right">
                 <ul>
-                    <li>Accueil</li>
-                    <li>Profil</li>
-                    <li>About Us</li>
+                <li><Flag code="FR" />FRA</li>                   
+                <li><Flag code="GB" />Ang</li> 
+                  
                 </ul>
                
             </div>
