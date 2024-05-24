@@ -7,6 +7,8 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
 import basicCvImage from './image2.png';
+import creativeCvImage from './babacar.png';
+
 
 function CvList() {
     const [selectedCv, setSelectedCv] = useState(null);
@@ -15,63 +17,38 @@ function CvList() {
         setSelectedCv(cvType);
     };
 
-    const generateAndSharePDF = async () => {
-        const cvContent = document.getElementById('cv-content');
-      
-        try {
-          const canvas = await html2canvas(cvContent, {
-            allowTaint: true,
-            useCORS: true,
-            scale: window.devicePixelRatio
+    const generatePdf = () => {
+      const input = document.getElementById('cv-content');
+  
+      html2canvas(input)
+          .then((canvas) => {
+              const imgData = canvas.toDataURL('image/png');
+              const pdf = new jsPDF();
+              const pdfWidth = 210; // A4 size: 210mm x 297mm
+              const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+              pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+              pdf.save("cv.pdf");
+          })
+          .catch((error) => {
+              console.error("Error generating PDF: ", error);
           });
-      
-          const imgData = canvas.toDataURL('image/png');
-          const pdf = new jsPDF('p', 'mm', 'a4');
-          const imgProps = pdf.getImageProperties(imgData);
-          const pdfWidth = pdf.internal.pageSize.getWidth();
-          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      
-          pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      
-          const pdfBlob = pdf.output('blob');
-      
-          if (navigator.share) {
-            await navigator.share({
-              files: [pdfBlob],
-              title: 'CV PDF',
-              text: 'Voici mon CV en PDF.'
-            });
-          } else {
-            console.error('Web Share API not supported');
-          }
-        } catch (error) {
-          console.error('Error generating or sharing PDF:', error);
-        }
-      };
-
+  };
+  
     return (
         <div className="cv-list-container">
             <h2 className="cv-list-header">Choisissez le type de CV à travailler :</h2>
             <div className="cv-list-buttons">
                 <div className="cv-button-container">
-                  <button className="cv-list-button" onClick={() => handleSelectCv('basic')}>CV Basique</button>
-                    <img src={basicCvImage} alt="CV Basique" className="cv-button-image" />
-                    
+                    <button className="cv-list-button" onClick={() => handleSelectCv('basic')}>CV Basique</button>
+                   <a className='cur' onClick={() => handleSelectCv('basic')}><img src={basicCvImage} alt="CV Basique" className="cv-button-image" /></a> 
                 </div>
+                
                 <div className="cv-button-container">
-                    <button className="cv-list-button" onClick={() => handleSelectCv('professional')}>CV Professionnel</button>
-                    <img src={basicCvImage} alt="CV Basique" className="cv-button-image" />
-
-                </div>
-                <div className="cv-button-container">
-                   
-         <button className="cv-list-button" onClick={() => handleSelectCv('creative')}>CV Créatif</button>
-         <img src={basicCvImage} alt="CV Basique" className="cv-button-image" />
-
+                    <button className="cv-list-button" onClick={() => handleSelectCv('creative')}>CV Créatif</button>
+                   <a className='cur' onClick={() => handleSelectCv('creative')}> <img src={creativeCvImage} alt="CV Basique" className="cv-button-image" /></a> 
                 </div>
             </div>
-            <button onClick={generateAndSharePDF} className="download-button">Télécharger en PDF</button>
-
+            <button onClick={generatePdf} className="download-button">Télécharger en PDF</button>
 
             {selectedCv === 'basic' && <BasicCv />}
             {selectedCv === 'professional' && <ProfessionalCv />}
