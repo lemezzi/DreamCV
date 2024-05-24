@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import './Personal.css'; // Fichier CSS pour le style
+import './Personal.css';
 import { useDispatch } from 'react-redux';
-import { changeName, changeTelph, changeMail, changeAdress,changeGithub, changeLinkedin,changeDescrip } from "../features/CvSlice";
-import { FaPlus } from "react-icons/fa";
-import { FaArrowDown } from "react-icons/fa";
-import { FaArrowUp } from "react-icons/fa";
+import { changeName, changeTelph, changeMail, changeAdress, changeGithub, changeLinkedin, changeDescrip, changeImage } from "../features/CvSlice";
+import { FaPlus, FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 function Personal() {
   const dispatch = useDispatch();
@@ -12,25 +10,27 @@ function Personal() {
   const [mail, setMail] = useState("");
   const [teleph, setTeleph] = useState("");
   const [adress, setAdress] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [github, setGithub] = useState("");
+  const [description, setDescription] = useState('');
+  const [imageUrl, setImageUrl] = useState(null);
   const [editingIndex, setEditingIndex] = useState(null);
   const [personals, setPersonals] = useState([]);
   const [isFormVisible, setIsFormVisible] = useState(true);
-  const[linkedin,setLinkedin]=useState("");
-  const[github,setGithub]=useState("");
-  const [description, setDescription] = useState('');
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     if (verif()) {
       dispatch(changeTelph({ teleph }));
       dispatch(changeName({ nom }));
       dispatch(changeMail({ mail }));
-      dispatch(changeAdress({ adress }));
-      dispatch(changeGithub({ github }));
-      dispatch(changeLinkedin({ linkedin }));
-      dispatch(changeDescrip({description}));
+      dispatch(changeAdress({ adress}));
+      dispatch(changeGithub({ github: nom.replace(/\s+/g, '') + ".github" }));
+dispatch(changeLinkedin({ linkedin: nom.replace(/\s+/g, '') + ".linkedin" }));
+    
+       dispatch(changeDescrip({ description }));
+      dispatch(changeImage({ imageUrl }));
 
-      
       const newPersonal = {
         nom,
         mail,
@@ -38,9 +38,10 @@ function Personal() {
         adress,
         linkedin,
         github,
-        description
+        description,
+        imageUrl
       };
-  
+
       if (editingIndex !== null) {
         const updatedPersonals = [...personals];
         updatedPersonals[editingIndex] = newPersonal;
@@ -50,7 +51,6 @@ function Personal() {
         setPersonals([...personals, newPersonal]);
       }
 
-      // Réinitialiser les champs du formulaire
       setNom("");
       setMail("");
       setTeleph("");
@@ -58,14 +58,14 @@ function Personal() {
       setLinkedin("");
       setGithub("");
       setDescription("");
+      setImageUrl(null);
     } else {
       alert("Veuillez remplir tous les champs !");
     }
   };
-  
+
   const verif = () => {
-    return nom !== "" && mail !== "" && teleph !== "" && adress !== ""&& linkedin!==""&&  github!=="" &&description
-    !=="";
+    return nom !== "" && mail !== "" && teleph !== "" && adress !== "" && linkedin !== "" && github !== "" && description !== "";
   };
 
   const handleDelete = (index) => {
@@ -83,20 +83,31 @@ function Personal() {
     setLinkedin(personalToEdit.linkedin);
     setGithub(personalToEdit.github);
     setDescription(personalToEdit.description);
+    setImageUrl(personalToEdit.imageUrl);
     setEditingIndex(index);
-    
   };
 
   const toggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
   };
 
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="personal-container">
       <h2>Informations Personnelles <button onClick={toggleFormVisibility}>
-        {isFormVisible ? <><FaArrowUp /></>: <><FaArrowDown /></>}
+        {isFormVisible ? <><FaArrowUp /></> : <><FaArrowDown /></>}
       </button></h2>
-      
+
       {isFormVisible && (
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -144,13 +155,13 @@ function Personal() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="linkedin">LinkedIn:</label>
+            <label htmlFor="linkedin">LinkedIn :</label>
             <input
               value={linkedin}
               type="text"
               id="linkedin"
               name="linkedin"
-              placeholder="Entrez votre URL linledin"
+              placeholder="Entrez votre URL LinkedIn"
               onChange={(e) => setLinkedin(e.target.value)}
             />
           </div>
@@ -165,37 +176,47 @@ function Personal() {
               onChange={(e) => setGithub(e.target.value)}
             />
           </div>
-
           <div className="form-group">
-          <label htmlFor="description">Description :</label>
-          <textarea id="description" name="description" placeholder="Entrez une description" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
-        </div>
+            <label htmlFor="description">Description :</label>
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Entrez une description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="image">Image de profil :</label>
-            <input type="file" id="image" name="image" accept="image/*" />
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
           </div>
           <button type="submit">
             {editingIndex !== null ? "Modifier" : <>Ajouter <FaPlus /></>}
           </button>
-         
         </form>
-      )} <div className="added-personals">
-      {personals.map((personal, index) => (
-        <div key={index} className="personal-item">
-          <p>Nom : {personal.nom}</p>
-          <p>Email : {personal.mail}</p>
-          <p>Téléphone : {personal.teleph}</p>
-          <p>Adresse : {personal.adress}</p>
-          <p>LinkedIn:{personal.linkedin}</p>
-          <p>Github:{personal.github}</p>
-          <div className='descrip'> <p>Desctiprion:{personal.description}</p> </div>
-          
-          <button onClick={() => handleEdit(index)}>Modifier</button>
-          <button className="delete" onClick={() => handleDelete(index)}>Supprimer</button>
-        </div>
-      ))}
-    </div>
-     
+      )}
+      <div className="added-personals">
+        {personals.map((personal, index) => (
+          <div key={index} className="personal-item">
+            {personal.imageUrl && <img src={personal.imageUrl} alt="Profile" className="profile-image" />}
+            <p>Nom : {personal.nom}</p>
+            <p>Email : {personal.mail}</p>
+            <p>Téléphone : {personal.teleph}</p>
+            <p>Adresse : {personal.adress}</p>
+            <p>LinkedIn : {personal.linkedin}</p>
+            <p>Github : {personal.github}</p>
+            <div className='descrip'><p>Description : {personal.description}</p></div>
+            <button onClick={() => handleEdit(index)}>Modifier</button>
+            <button className="delete" onClick={() => handleDelete(index)}>Supprimer</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
