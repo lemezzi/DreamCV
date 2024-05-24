@@ -43,8 +43,8 @@
 
 
 .cv-button-image {
-    width: 150px;
-    height: auto;
+    width: 200px;
+    height: 280px;
     margin-top: 10px;
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -75,4 +75,8 @@
       width: 100%; 
       max-width: 300px; 
     }
+  }
+
+  .cur{
+    cursor: pointer;
   }
