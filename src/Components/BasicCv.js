@@ -2,7 +2,7 @@
 import React, { useDebugValue } from 'react';
 import './BasicCv.css';
 import { useSelector } from 'react-redux';
-import { getMail, getNom, getTelph, getAdress, getGit, getLink, getDescrip } from '../features/CvSlice';
+import { getMail, getNom, getTelph, getAdress, getGit, getLink, getDescrip, getImage } from '../features/CvSlice';
 import { geteducat } from '../features/EducationSlice';
 import { FaArrowRight } from "react-icons/fa";
 
@@ -28,11 +28,13 @@ function BasicCv() {
    const exp=useSelector(getprof);
    const sub=useSelector(getLanguages);
    const lang=useSelector(getLangue);
+   const image=useSelector(getImage);
     return (
         <div className="BasicCv">
             <div id="cv-content" className="Cvside">
                 <header>
                     <div className='head'> <h1 className='Nom'>{ali}</h1>
+                    {image && <img src={image} alt="Profile" className="profile-image" />}
                     <p className='adress'><GiPositionMarker />{adress}</p></div>
                    
                     <div className='contain'>
@@ -49,21 +51,41 @@ function BasicCv() {
                     <h2>Education</h2>
                     <div className='ligne'></div>
        <p></p>
-                    <div className="educat">
-        {educat.map((ed, index) => (
-          <div key={index} className="items">
-          <div className='lig1'>
-            <p> <b>{ed.schoolName.toUpperCase()}</b> </p>
-            <div className='part2'><p><b>{ed.from}</b> <FaArrowRight /> </p>
-            <p> <b>{ed.to}</b></p></div>
-          </div>
-          <div className='part3' > <p>{ed.subject}</p> <p className='cit'><GiPositionMarker /><b>{ed.city}</b></p></div>
-          <p className='des'> <b>Diplôme : </b> {ed.degree}</p>
-          
+       <div className="educat">
+  {educat.map((ed, index) => (
+    <div key={index} className="items">
+      <div className='lig1'>
+        <p><b>{ed.schoolName.toUpperCase()}</b></p>
+        <div className='part2'>
+          <p>
+            <b>
+              {(() => {
+                const fromDateParts = ed.from.split('-');
+                const fromYearMonth = fromDateParts[0] + '-' + fromDateParts[1];
+                return fromYearMonth;
+              })()}
+            </b>
+            <FaArrowRight />
+          </p>
+          <p>
+            <b>
+              {(() => {
+                const toDateParts = ed.to.split('-');
+                const toYearMonth = toDateParts[0] + '-' + toDateParts[1];
+                return toYearMonth;
+              })()}
+            </b>
+          </p>
         </div>
-        
-        ))}
       </div>
+      <div className='part3'>
+        <p>{ed.subject}</p>
+        <p className='cit'><GiPositionMarker /><b>{ed.city}</b></p>
+      </div>
+      <p className='des'><b>Diplôme : </b> {ed.degree}</p>
+    </div>
+  ))}
+</div>
 
                 </section>
                 
@@ -72,19 +94,39 @@ function BasicCv() {
                     <div className='ligne'></div>
 
                     <div className="educat">
-        {exp.map((experience, index) => (
-          <div key={index} className="items">
-            
-            <div className='lig1'>
-<p> <b>{experience.companyName.toUpperCase()}</b></p>  <div className='part2'><p><b>{experience.from}</b> <FaArrowRight /> </p>
-            <p><b>{experience.to}</b></p></div></div>
-            <div className='part3' > <p>{experience.description}</p> <p  className='cit'><GiPositionMarker /><b>{experience.city}</b></p></div>
-
-         <p><b>Outils:</b>  {experience.position}</p>
-          
-           
-          </div>
-        ))}
+                    {exp.map((experience, index) => (
+  <div key={index} className="items">
+    <div className='lig1'>
+      <p><b>{experience.companyName.toUpperCase()}</b></p>
+      <div className='part2'>
+        <p>
+          <b>
+            {(() => {
+              const fromDateParts = experience.from.split('-');
+              const fromYearMonth = fromDateParts[0] + '-' + fromDateParts[1];
+              return fromYearMonth;
+            })()}
+          </b>
+          <FaArrowRight />
+        </p>
+        <p>
+          <b>
+            {(() => {
+              const toDateParts = experience.to.split('-');
+              const toYearMonth = toDateParts[0] + '-' + toDateParts[1];
+              return toYearMonth;
+            })()}
+          </b>
+        </p>
+      </div>
+    </div>
+    <div className='part3'>
+      <p>{experience.description}</p>
+      <p className='cit'><GiPositionMarker /><b>{experience.city}</b></p>
+    </div>
+    <p><b>Outils:</b> {experience.position}</p>
+  </div>
+))}
       </div>
                 </section>
                 
