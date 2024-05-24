@@ -108,3 +108,10 @@ button[type="submit"]:hover {
       padding: 10px; /* Réduire le padding */
   }
 }
+
+.profile-image {
+  width: 100px; /* Largeur de l'image */
+  height: 100px; /* Hauteur de l'image */
+  border-radius: 50%; /* Arrondit l'image en un cercle */
+  object-fit: cover; /* Conserve les proportions de l'image */
+}
