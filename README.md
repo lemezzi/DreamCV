@@ -21,7 +21,7 @@ Créez, personnalisez et téléchargez votre CV en format PDF en quelques clics.
 
 Regardez notre vidéo de démonstration ci-dessous pour voir CV Maker en action :
 
-[Regardez la démonstration vidéo]([https://www.youtube.com/watch?v=votre_video_id](https://www.youtube.com/watch?v=WYxK058Hl8U&t=15s))
+[Regardez la démonstration vidéo](https://www.youtube.com/watch?v=WYxK058Hl8U&t=15s)
 
 *Cliquez sur le lien ci-dessus pour visionner la vidéo.*
 
