@@ -18,8 +18,6 @@ Créez, personnalisez et téléchargez votre CV en format PDF en quelques clics.
 
 ## 🎬 Démonstration
 
-Découvrez une démonstration en direct de l'application [ici](https:![Uploading Mezi.png…]()
-//CvDream.netlify.app).
 
 Regardez notre vidéo de démonstration ci-dessous pour voir CV Maker en action :
 
