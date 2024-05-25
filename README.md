@@ -23,9 +23,9 @@ Découvrez une démonstration en direct de l'application [ici](https:![Uploading
 
 Regardez notre vidéo de démonstration ci-dessous pour voir CV Maker en action :
 
-[![Démonstration Vidéo](https://img.youtube.com/vi/votre_video_id/0.jpg)]([https://www.youtube.com/watch?v=votre_video_id]([https://youtu.be/WYxK058Hl8U](https://www.youtube.com/watch?v=WYxK058Hl8U&t=15s)))
+[Regardez la démonstration vidéo]([https://www.youtube.com/watch?v=votre_video_id](https://www.youtube.com/watch?v=WYxK058Hl8U&t=15s))
 
-*Cliquez sur l'image ci-dessus pour visionner la vidéo.*
+*Cliquez sur le lien ci-dessus pour visionner la vidéo.*
 
 ## 🛠️ Installation
 
